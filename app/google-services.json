@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "305795720167",
+    "firebase_url": "https://confirmation-e63a7.firebaseio.com",
+    "project_id": "confirmation-e63a7",
+    "storage_bucket": "confirmation-e63a7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:305795720167:android:d7a56896aa15c4f5",
+        "android_client_info": {
+          "package_name": "com.example.rachit.confirmation"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "305795720167-ca5723g3fusj84muv14rrunbeporf7t4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.rachit.confirmation",
+            "certificate_hash": "6e91e932b4d5ff192a68d0d4c7f2a61386c6b7c0"
+          }
+        },
+        {
+          "client_id": "305795720167-9n41vailebsgkhveso358ia38s5di0sn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBlBVQsrhfb-ZChMZHJQcZgtiEuEiSGuzw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "305795720167-9n41vailebsgkhveso358ia38s5di0sn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
