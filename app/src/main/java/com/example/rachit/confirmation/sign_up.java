@@ -28,6 +28,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+
         Register = (Button) findViewById(R.id.Register);
         Name = (EditText) findViewById(R.id.Name);
         Password = (EditText) findViewById(R.id.Password);
@@ -36,13 +37,12 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         firebaseauth = FirebaseAuth.getInstance();
         prd = new ProgressDialog(this);
 
-
-
     }
      private void registeruser() {
         String email = Email_Id.getText().toString().trim();
         String password = Password.getText().toString().trim();
         final String name = Name.getText().toString().trim();
+
          if(TextUtils.isEmpty(name))
          {
              //name is empty
@@ -50,6 +50,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
              return;
              //to stop the Execution
          }
+
         if(TextUtils.isEmpty(email))
         {
             //email is empty
@@ -76,13 +77,18 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
                      prd.setMessage("Registering User...");
                      sendconfirmationmail();
                  }
+
                  else
                  {
                      Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
                  }
+
              }
+
              private void sendconfirmationmail() {
+
                  FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
                  if(user!=null) {
                      UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
                              .setDisplayName(name).build();
@@ -97,10 +103,12 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
                                  prd.dismiss();
 
                              }
+
                              else
                              {
                                  Toast.makeText(getApplicationContext(),task.getException().getMessage(),Toast.LENGTH_LONG).show();
                              }
+
                          }
                      });
                  }
@@ -108,11 +116,10 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
              }
          });
      }
-    @Override
-    public void onClick(View view) {
-        if(view == Register) {
 
-            registeruser();
-        }
+    @Override
+    public void onClick(View view){
+
+        registeruser();
     }
 }

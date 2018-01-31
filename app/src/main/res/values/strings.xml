@@ -7,5 +7,7 @@
     <string name="Register">Register</string>
     <string name="EmailId">Email Id</string>
     <string name="LogOut">Log Out</string>
+    <string name="Forgot">Forget Password</string>
+    <string name="Reset">Send Reset Mail</string>
 
 </resources>

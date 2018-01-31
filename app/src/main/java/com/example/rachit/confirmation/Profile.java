@@ -19,6 +19,7 @@ Button LogOut;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
         Profile = (TextView) findViewById(R.id.Profile) ;
         i = getIntent();
         String name = i.getStringExtra("Name");
@@ -26,15 +27,16 @@ Button LogOut;
         LogOut = (Button) findViewById(R.id.LogOut);
         LogOut.setOnClickListener(this);
 
-
     }
 
     @Override
     public void onClick(View view) {
+
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
         fAuth.signOut();
         i = new Intent(getApplicationContext(),MainActivity.class);
         startActivity(i);
         finish();
+
     }
 }
