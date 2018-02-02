@@ -20,7 +20,8 @@ public class Forget extends AppCompatActivity implements View.OnClickListener {
     FirebaseAuth fauth;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forget);
 
@@ -32,7 +33,8 @@ public class Forget extends AppCompatActivity implements View.OnClickListener {
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)
+    {
 
         String email = Email.getText().toString();
 
@@ -47,9 +49,9 @@ public class Forget extends AppCompatActivity implements View.OnClickListener {
         fauth.sendPasswordResetEmail(email).addOnCompleteListener(this, new OnCompleteListener<Void>() {
             @Override
 
-            public void onComplete(@NonNull Task<Void> task) {
+            public void onComplete(@NonNull Task<Void> task) { //to send mail for reseting password
 
-                if (task.isSuccessful())
+                if (task.isSuccessful())            //to check if mail if correct or not
                 {
                     Toast.makeText(getApplicationContext(),"Reset Email has been Sent",Toast.LENGTH_LONG).show();
                 }

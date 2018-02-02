@@ -15,8 +15,10 @@ public class Profile extends AppCompatActivity implements View.OnClickListener {
 TextView Profile;
 Intent i;
 Button LogOut;
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
@@ -30,12 +32,13 @@ Button LogOut;
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View view)   //onclick for log out button
+    {
 
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
-        fAuth.signOut();
+        fAuth.signOut();    //to get log out from profile page
         i = new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(i);
+        startActivity(i);  //to go back to login page after log out
         finish();
 
     }

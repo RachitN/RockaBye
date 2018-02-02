@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Sign"
     tools:context="com.example.rachit.confirmation.sign_up">
 
     <EditText
@@ -42,6 +43,9 @@
         android:id="@+id/Register"
         android:layout_width="146dp"
         android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:background="@drawable/shape"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"

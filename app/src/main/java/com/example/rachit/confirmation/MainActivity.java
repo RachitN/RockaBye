@@ -20,32 +20,42 @@ import com.google.firebase.auth.UserInfo;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView New, Forgot;
-    EditText Name, Password;
+    EditText Email_id, Password;
     Button Login;
     FirebaseAuth fa;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            if (user.isEmailVerified()) {
+
+        if (user != null)                               //to check if user logged in or not
+        {
+
+            if (user.isEmailVerified())                 //to check if the email is verified or not
+
+            {
                 final String user_name = user.getDisplayName();
                 Intent i = new Intent(getApplicationContext(), Profile.class);
                 i.putExtra("Name", user_name);
                 startActivity(i);
                 finish();
-            } else {
-                Toast.makeText(getApplicationContext(), "Email Not Verified", Toast.LENGTH_LONG).show();
-
             }
+
+            else
+
+            {
+                Toast.makeText(getApplicationContext(), "Email Not Verified", Toast.LENGTH_LONG).show();
+            }
+
         }
 
         New = (TextView) findViewById(R.id.New);
         Forgot = (TextView) findViewById(R.id.Forgot);
-        Name = (EditText) findViewById(R.id.Name);
+        Email_id = (EditText) findViewById(R.id.Email_id);
         Password = (EditText) findViewById(R.id.Password);
         Login = (Button) findViewById(R.id.Login);
         New.setOnClickListener(this);
@@ -57,48 +67,63 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void sign_in() {
 
-        String email_id = Name.getText().toString();
+        String email_id = Email_id.getText().toString();
 
         String password = Password.getText().toString();
 
-        if (TextUtils.isEmpty((email_id))) {
+        if (TextUtils.isEmpty((email_id)))
+        {
             //email is empty
             Toast.makeText(this, "Please Enter Your Name", Toast.LENGTH_LONG).show();
             return;
             //to stop the Execution
         }
 
-        if (TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(password))
+        {
             //password is empty
             Toast.makeText(this, "Please Enter Your Password", Toast.LENGTH_LONG).show();
             return;
             //to stop the Execution
         }
 
-        fa.signInWithEmailAndPassword(email_id, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        fa.signInWithEmailAndPassword(email_id, password).addOnCompleteListener(new OnCompleteListener<AuthResult>()
+        {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task) {    //to make user sign with email and password
 
 
-                if (task.isSuccessful()) {
+                if (task.isSuccessful())                 //to check if email_id or password is correct or not
+                {
+
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                    if (user.isEmailVerified()) {
+
+                    if (user.isEmailVerified())                       //to check if the email is verified or not
+
+                    {
                         String user_name = user.getDisplayName();
                         Intent i = new Intent(getApplicationContext(), Profile.class);
                         i.putExtra("Name", user_name);
-                        startActivity(i);
+                        startActivity(i);                            //to open profile page
                         finish();
-                    } else {
+                    }
+
+                    else
+
+                    {
                         Toast.makeText(getApplicationContext(), "Email Not Verified", Toast.LENGTH_LONG).show();
                     }
 
-                } else {
+                }
+
+                else
+
+                {
                     Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
                 }
 
             }
         });
-
 
     }
 
@@ -106,16 +131,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
 
-        if (view == New) {
+        if (view == New)                             //if new user link is clicked
+        {
             Intent i = new Intent(this, sign_up.class);
             startActivity(i);
         }
 
-        else if (view == Login) {
+        else if (view == Login)                        //if Login utton is clicked
+        {
             sign_in();
         }
 
-        else {
+        else                                          //if forgot password link is clicked
+        {
             Intent i = new Intent(this, Forget.class);
             startActivity(i);
         }

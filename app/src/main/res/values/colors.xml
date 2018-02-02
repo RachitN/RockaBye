@@ -3,4 +3,6 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name ="Brown">#9AA52A2A</color>
+    <color name="Sign">#AA45a4</color>
 </resources>
