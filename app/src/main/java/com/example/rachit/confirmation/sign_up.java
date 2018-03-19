@@ -14,6 +14,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
 public class sign_up extends AppCompatActivity implements View.OnClickListener {
@@ -21,6 +22,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
     private Button Register;
     private EditText Name,Password,Email_Id;
     private FirebaseAuth firebaseauth;
+    private PhoneAuthProvider phnauth;
     private ProgressDialog prd ;
 
     @Override
@@ -35,6 +37,7 @@ public class sign_up extends AppCompatActivity implements View.OnClickListener {
         Email_Id = (EditText) findViewById(R.id.Email_id);
         Register.setOnClickListener(this);
         firebaseauth = FirebaseAuth.getInstance();
+        phnauth = PhoneAuthProvider.getInstance();
         prd = new ProgressDialog(this);
 
     }

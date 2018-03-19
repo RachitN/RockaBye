@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             {
                 Toast.makeText(getApplicationContext(), "Email Not Verified", Toast.LENGTH_LONG).show();
+                FirebaseAuth fAuth = FirebaseAuth.getInstance();
+                fAuth.signOut();    //to get log out from profile page
             }
 
         }
@@ -135,6 +137,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         {
             Intent i = new Intent(this, sign_up.class);
             startActivity(i);
+            finish();
         }
 
         else if (view == Login)                        //if Login utton is clicked
